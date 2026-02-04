@@ -1,0 +1,10 @@
+# Ignore build and dependency files
+node_modules/
+build/
+dist/
+*.exe
+*.dll
+*.o
+*.obj
+*.class
+.vscode/
