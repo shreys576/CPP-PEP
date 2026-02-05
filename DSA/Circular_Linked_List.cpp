@@ -73,8 +73,67 @@ void InsertAtPoint(Node* &head, int value, int point){
     temp -> next = newnode;
 }
 
+void DeleteFirst(Node* &head){
+    if(head == nullptr){
+        return;
+    }
+    Node* temp = head;
+    if(head -> next == head){
+        head = nullptr;
+        delete temp;
+        return;
+    }
+    Node* toDelete = head;
+    while(temp -> next != head){
+        temp = temp -> next;
+    }
+    head = head -> next;
+    temp -> next = head;
+    delete toDelete;
+}
+
+void DeleteLast(Node* &head){
+    if(head == nullptr) return;
+    Node* temp = head;
+    if(head -> next == head){
+        head = nullptr;
+        delete temp;
+        return;
+    }
+    while(temp -> next -> next!= head){
+        temp = temp -> next;
+    }
+    Node* toDelete = temp -> next;
+    temp -> next = head;
+    delete toDelete;
+}
+
+void DeletePosition(Node* &head, int position){
+    if(head == nullptr){
+        return;
+    }
+    if(position == 1){
+        DeleteFirst(head);
+        return;
+    }
+    Node* temp = head;
+    for(int i = 1; i < position - 1; i ++){
+        if(temp -> next != head){
+            temp = temp -> next;
+        }
+    }
+    if(temp -> next == head){
+        return;
+    }
+
+    Node* toDelete = temp -> next;
+    temp -> next = toDelete -> next;
+    delete toDelete;
+}
+
 void PrintList(Node* head){
     if(head == nullptr){
+        cout << "NULL" << endl;
         return;
     }
     Node* temp = head;
@@ -95,6 +154,32 @@ int main(){
     InsertAtEnd(head, 5);
     InsertAtPoint(head, 8, 2);
 
+    PrintList(head);
+
+    DeleteLast(head);
+    PrintList(head);
+
+    DeleteLast(head);
+    PrintList(head);
+
+    DeleteLast(head);
+    PrintList(head);
+
+    InsertAtStart(head, 3);
+    InsertAtStart(head, 4);
+    InsertAtStart(head, 5);
+    PrintList(head);
+
+    DeleteFirst(head);
+    PrintList(head);
+
+    InsertAtEnd(head, 8);
+    InsertAtEnd(head,9);
+    InsertAtEnd(head, 5);
+
+    PrintList(head);
+
+    DeletePosition(head, 2);
     PrintList(head);
 
 }

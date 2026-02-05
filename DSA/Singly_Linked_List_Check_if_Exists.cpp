@@ -175,44 +175,26 @@ void PrintList(Node* head){
     cout << endl;
 }
 
+bool SearchKey(Node* head, int key){
+    if(head == nullptr) return false;
+
+    if(head -> data == key) return true;
+
+    SearchKey(head -> next, key);
+}
+
 
 int main(){
 
     Node* head = nullptr;
     InsertAtEnd(head, 5);
     InsertAtStart(head, 3);
-    PrintList(head);
-
     InsertAfterKey(head, 4, 3);
     InsertBeforeKey(head, 1, 5);
-    PrintList(head);
-
-    DeleteAtStart(head);
-    PrintList(head);
-
-    DeleteAtEnd(head);
-    PrintList(head);
-
     InsertAfterKey(head, 7, 4);
     InsertAtStart(head, 12);
     InsertBeforeKey(head, 8, 4);
-    PrintList(head);
-
-    DeleteValue(head, 8);
-    PrintList(head);
-
     InsertAtPoint(head, 19, 3);
-    PrintList(head);
-
-    DeleteAtPosition(head, 3);
-    PrintList(head);
-
-    DeleteAtPosition(head, 4);
-    PrintList(head);
-
     InsertAtEnd(head, 8);
-    DeleteAtPosition(head, 2);
-    PrintList(head);
-
-
+    cout << SearchKey(head,67);
 }

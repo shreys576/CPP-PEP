@@ -4,7 +4,7 @@ using namespace std;
 int main() {
   
     // Initialize 2D vector of size 3 x 3 with
-  	// defualt value 5
+  	// default value 5
     vector<vector<int>> v(3, vector<int>(3, 5));
 
     for (auto i : v) {

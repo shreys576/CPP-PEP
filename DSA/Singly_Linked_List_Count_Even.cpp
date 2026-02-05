@@ -175,44 +175,56 @@ void PrintList(Node* head){
     cout << endl;
 }
 
+int EvenCount(Node* head){
+    if(head == nullptr) return 0;
+    int count = 0;
+    Node* temp = head;
+    while(temp != nullptr){
+        if(temp -> data % 2 == 0) count++;
+        temp = temp -> next;
+    }
+    return count;
+}
+
 
 int main(){
 
     Node* head = nullptr;
     InsertAtEnd(head, 5);
     InsertAtStart(head, 3);
-    PrintList(head);
+    // PrintList(head);
 
     InsertAfterKey(head, 4, 3);
     InsertBeforeKey(head, 1, 5);
-    PrintList(head);
+    // PrintList(head);
 
-    DeleteAtStart(head);
-    PrintList(head);
+    // DeleteAtStart(head);
+    // PrintList(head);
 
-    DeleteAtEnd(head);
-    PrintList(head);
+    // DeleteAtEnd(head);
+    // PrintList(head);
 
     InsertAfterKey(head, 7, 4);
     InsertAtStart(head, 12);
     InsertBeforeKey(head, 8, 4);
-    PrintList(head);
+    // PrintList(head);
 
-    DeleteValue(head, 8);
-    PrintList(head);
+    // DeleteValue(head, 8);
+    // PrintList(head);
 
     InsertAtPoint(head, 19, 3);
-    PrintList(head);
+    // PrintList(head);
 
-    DeleteAtPosition(head, 3);
-    PrintList(head);
+    // DeleteAtPosition(head, 3);
+    // PrintList(head);
 
-    DeleteAtPosition(head, 4);
-    PrintList(head);
+    // DeleteAtPosition(head, 4);
+    // PrintList(head);
 
     InsertAtEnd(head, 8);
-    DeleteAtPosition(head, 2);
-    PrintList(head);
+    // DeleteAtPosition(head, 2);
+    // PrintList(head);
 
+    cout << EvenCount(head) << endl;
 
 }
